@@ -1,0 +1,104 @@
+<!-- let studentRecords = [ {name: 'John', id: 123, marks : 98 },
+          {name: 'Baba', id: 101, marks : 23 },
+          {name: 'yaga', id: 200, marks : 45 },
+          {name: 'Wick', id: 115, marks : 75 } ]  -->
+
+<!-- Q1 We are interested in retrieving only the students' names; all the names should be in caps. 
+
+['JOHN', 'BABA', 'YAGA', 'WICK'] -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Problem Statement 1</title>
+</head>
+<body>
+    <h2 class="ques1">Q1 We are interested in retrieving only the students' names; all the names should be in caps. 
+
+   ['JOHN', 'BABA', 'YAGA', 'WICK']</h2>
+
+   <h2><pre>console.log("Soluction 1:-")
+    console.log(studentRecords.map((e)=>e.name.toUpperCase()))</pre></h2>
+    <hr>
+    <h2 class="ques2">Q2:-Suppose we have the same dataset as above but this time we want to get the details of students who scored more than 50 marks.
+
+    [{name: 'John', id: 123, marks: 98 },{name: 'Wick', id: 115, marks: 75 }]</h2>
+    <h2><pre>console.log('Soluction 2:-')
+        let highScorers = studentRecords.filter(student => student.marks > 50);
+        
+        console.log(highScorers);</pre></h2>
+    <hr>
+    <h2 class="ques3">Q3:-Retrieve the details of students who scored more than 50 marks and have IDs greater than 120.</h2>
+    <h2><pre>console.log("Soluction 3:-")
+        let filteredStudents = studentRecords.filter(student => student.marks > 50 && student.id > 120);
+        console.log(filteredStudents);</pre></h2>
+    <hr>
+    <h2 class="ques4">Q4:-Consider the same scenario we have discussed above, but this time we would like to know the sum total of the marks of the students.</h2>
+    <h2><pre>console.log("Soluction 4:-")
+        let more_than_50 = studentRecords.filter(student => student.marks < 50);
+        let highScoringStudents = studentRecords.filter(student => student.marks > 50);</pre></h2>
+    <hr>
+    <h2 class="ques5">Q5:- This time we want to get only the names of the students who scored more than 50 marks from the same dataset used above.</h2>
+    <h2><pre>console.log("Soluction 5:-")
+        let highScoringNames = highScoringStudents.map(student => student.name);
+        console.log(highScoringNames);</pre></h2>
+    <hr>
+    <h2 class="ques6">Q6:- This time we are required to print the sum of marks of the students with id > 120.</h2>
+    <h2><pre>console.log("Soluction 6:-")
+        let sumMarks = studentRecords.reduce((sum, student) => {
+            if (student.id > 120) {
+                return sum + student.marks;
+            }
+            return sum;
+        }, 0);
+        
+        console.log('Sum of marks for students with id > 120:', sumMarks);</pre></h2>
+     <hr>
+    <h2 class="ques7">Q7:- This time we are required to print the total marks of the students with marks greater than 50 after a grace of 15 marks has been added to those students who scored less than 50.</h2>
+    <h2><pre>console.log("Soluction 7:-")
+
+        let adjustedStudentRecords = studentRecords.map(student => {
+            if (student.marks < 50) {
+                student.marks += 15;
+            }
+            return student;
+        });
+        
+        let totalMarks = adjustedStudentRecords
+            .filter(student => student.marks > 50)
+            .reduce((sum, student) => sum + student.marks, 0);
+        
+        console.log('Total marks for students with marks > 50 after adding grace:', totalMarks);</pre></h2>
+    <hr>
+    <h2 class="ques8">Q8:- Create 6 objects , each object will have name, class, roll no as properties. Store these objects in an array of objects. </h2>
+    <h2><pre>console.log("Soluction 8:-")
+        // Define the class for the objects
+        class Student {
+            constructor(name, className, rollNo) {
+              this.name = name;
+              this.className = className;
+              this.rollNo = rollNo;
+            }
+          }
+const student1 = new Student("John Doe", "Class A", 101);
+  const student2 = new Student("Jane Smith", "Class B", 102);
+  const student3 = new Student("Alice Johnson", "Class A", 103);
+  const student4 = new Student("Bob Williams", "Class C", 104);
+  const student5 = new Student("Eva Brown", "Class B", 105);
+  const student6 = new Student("Michael Davis", "Class C", 106);
+  
+  // Store the objects in an array
+  const studentArray = [student1, student2, student3, student4, student5, student6];
+  
+  console.log(studentArray);
+        </pre></h2>
+        <hr>
+    <script src="./script.js"></script>
+</body>
+</html>
+
+
+
